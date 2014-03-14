@@ -48,7 +48,8 @@ void Admin::viewAccountInDetail(){
 	ext.getAccountHolder(cPtr);
 
 	cout<<endl<<c.getUserName()<<endl;
-	cout<<ext.getPassword()<<endl;
+	//changed line 52, so Admin cannot see the user's password
+	cout<<"*****"<<endl;
 	cout<<"Account Number: "<<ext.getAccountNumber()<<endl<<endl;
 	c.displayPersonalInformation();
 	cout<<endl;
