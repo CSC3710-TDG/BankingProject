@@ -52,10 +52,10 @@ Person* AccountAccessor::login(Person *per, ExternalAccount &e){
 				}
 
 			}else{
-				cout<<"Password is incorrect."<<endl;
+				cout<<"Username or password is incorrect."<<endl;
 			}
 		}else{
-			cout<<"Password is incorrect."<<endl;
+			cout<<"Username or password is incorrect."<<endl;
 		}
 	}
 
