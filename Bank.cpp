@@ -152,7 +152,12 @@ void Bank::printBank(){
 		ExternalAccount temp = i->second;
 		string userName = i->first;
 		//changed line 152, so admin cannot see user's password
-		cout<< userName<<"\t"<< "*****" <<"\t"<< temp.getAccountNumber()<<endl;
+		cout<< userName;
+		if(userName.length<8)
+			cout<<"\t\t";
+		else
+			cout<<"\t";
+		cout<< "*****" <<"\t"<< temp.getAccountNumber()<<endl;
 	}
 	cout<<"\n";
 }
