@@ -157,7 +157,7 @@ void Bank::printBank(){
 			cout<<"\t\t";
 		else
 			cout<<"\t";
-		cout<< "*****" <<"\t"<< temp.getAccountNumber()<<endl;
+		cout<< "*****" <<"\t\t"<< temp.getAccountNumber()<<endl;
 	}
 	cout<<"\n";
 }
