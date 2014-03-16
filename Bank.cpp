@@ -153,7 +153,7 @@ void Bank::printBank(){
 		string userName = i->first;
 		//changed line 152, so admin cannot see user's password
 		cout<< userName;
-		if(userName.length<8)
+		if(userName.length()<8)
 			cout<<"\t\t";
 		else
 			cout<<"\t";
