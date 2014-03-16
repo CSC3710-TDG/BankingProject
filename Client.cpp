@@ -106,9 +106,12 @@ void Client::withdraw(){
 			}while(stop2!=1);
 
 			//update the money in both account
-			if(heldAccount[n-1].getMoney()<m)
+			if(heldAccount[n-1].getMoney()<m){
+				system("clear");
 				cout<<"Sorry, there is insufficient money in your account."<<endl;
+			}
 			else{
+				system("clear");
 				heldAccount[n-1].setMoney(heldAccount[n-1].getMoney()-m);
 				cout<<"Process succeeds."<<endl;
 				viewInternalAccount();
@@ -171,6 +174,7 @@ void Client::deposit(){
 
 			//update the money in the account
 			heldAccount[n-1].setMoney(heldAccount[n-1].getMoney()+m);
+			system("clear");
 			cout<<"Process succeeds."<<endl;
 			viewInternalAccount();
 		}
@@ -229,11 +233,13 @@ void Client::transfer(){
 				}while(stop2!=1);
 
 				//check if it's enough money
-				if(heldAccount[n-1].getMoney()<m)	//check if enough money to do the operation
+				if(heldAccount[n-1].getMoney()<m){	//check if enough money to do the operation
+					system("clear");
 					cout<<"Sorry, the balance in this account is insufficient."<<endl;
 				//update the money in accounts
-				else{
+				}else{
 					heldAccount[n-1].setMoney(heldAccount[n-1].getMoney()-m);//update the money in the account
+					system("clear");
 					cout<<"Process succeeds."<<endl;
 					switch(n-1){
 						case 0:
