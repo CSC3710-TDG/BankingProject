@@ -99,11 +99,30 @@ void Admin::createAccount(){
 	cout<<"Please enter birthday of client. (i.e. MM/DD/YYYY)"<< endl;
 	cin>>b;
 
+	bool isG = true;
+	do{
 	cout<<"Please enter gender of client. (M or F)"<< endl;
 	cin>>g;
+	if(toupper(g)!='M'&&toupper(g)!='F')
+		isG = false;
+	else
+		isG = true;
+	}while(isG==false);
 
-	cout<<"Please enter in phone number of client. (No spaces or dashes.)"<< endl;
+	bool isP = false;
+	do{
+	cout<<"Please enter in phone number of client including area code. (No spaces or dashes.)"<< endl;
 	cin>>p;
+	if(p.length()==10)
+		isP=true;
+	else
+		isP=false;
+	for(int i = 0; i < p.length()-1; i++){
+		if(!(p[i]>='0'&&p[i]<='9'))
+			isP=false;
+	}
+	}while(isP==false);
+	
 	getline(cin, a);
 
 	cout<<"Please enter in address of client. (Do not press enter, type all on one line.)\n";
