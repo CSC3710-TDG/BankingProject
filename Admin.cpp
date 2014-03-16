@@ -51,7 +51,7 @@ void Admin::viewAccountInDetail(){
 	ext.getAccountHolder(cPtr);
 
 	cout<<endl<<c.getUserName()<<endl;
-	//changed line 52, so Admin cannot see the user's password
+	//changed below line, so Admin cannot see the user's password
 	cout<<"*****"<<endl;
 	cout<<"Account Number: "<<ext.getAccountNumber()<<endl<<endl;
 	c.displayPersonalInformation();
@@ -84,6 +84,7 @@ void Admin::createAccount(){
 	string e;
 	string un;
 	string pass;
+	string pass2;
 
 	cout<<"Please enter first name of client."<< endl;
 	cin>>firstName;
@@ -100,11 +101,11 @@ void Admin::createAccount(){
 	cout<<"Please enter gender of client. (M or F)"<< endl;
 	cin>>g;
 
-	cout<<"Please enter in phone number of client. (no spaces or dashes)"<< endl;
+	cout<<"Please enter in phone number of client. (No spaces or dashes.)"<< endl;
 	cin>>p;
 	getline(cin, a);
 
-	cout<<"Please enter in address of client:\n";
+	cout<<"Please enter in address of client. (Do not press enter, type all on one line.)\n";
 	getline(cin, a);
 
 	cout<<"Please enter in email of client."<< endl;
@@ -113,8 +114,29 @@ void Admin::createAccount(){
 	cout<<"Please enter in username of client."<< endl;
 	cin>>un;
 
-	cout<<"Please enter in a password"<< endl;
+	cout<<"Please enter in a password."<< endl;
 	cin>>pass;
+
+	cout<<"Please re-enter password."<< endl;
+	cin>>pass2;
+
+/*
+	int compare = pass.compare(pass2);
+
+	while(compare==-1)
+	{
+		cout<<"Passwords do not match. Please try again."<<endl;
+
+		cout<<"Please enter in a password."<< endl;
+		cin>>pass;
+
+		cout<<"Please re-enter password."<< endl;
+		cin>>pass2;
+
+		compare = pass.compare(pass2);
+
+	}
+*/
 
 	clie.setPerson(n,b,g,p,a,e,un);
 
