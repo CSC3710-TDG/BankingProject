@@ -1,2 +1,3 @@
 admin admin 1
+josh monkey 3
 nzayatz14 password 2

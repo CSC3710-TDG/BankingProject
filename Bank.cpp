@@ -180,7 +180,7 @@ void Bank::createExternalAccount(Client &a, string pass){
 	//get the userName of the new person, make the pair for the unordered_map, and put it into bank.
 	//Also, print the general information of the newly created account
 	string user = a.getUserName();
-//	cout<<user<<" ";
+//	cout<<user<<" "; commented out because duplicate output of username. not sure if mistake or record keeping, but not necessary
 	n.displayExternalAccount();
 	bank.insert(make_pair(user, n));
 

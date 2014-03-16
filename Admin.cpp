@@ -10,6 +10,8 @@
 #include <sstream>
 #include <fstream>
 #include <cstdlib>
+#include <string>
+#include <cstring>
 using namespace std;
 
 Admin::Admin() {
@@ -96,27 +98,111 @@ void Admin::createAccount(){
 
 	string n = firstName + " "+lastName;
 
+	//boolean for checking if valid date
+	bool isB = true;
+	do{
 	cout<<"Please enter birthday of client. (i.e. MM/DD/YYYY)"<< endl;
 	cin>>b;
+	cout << b << endl;
+	if(b.length()!=10)//if date is not of correct length
+		isB = false;
+	string duplicate=b;
+	//making substrings to check valid format and actual dates
+	string bms=duplicate.substr(0,2);
+	char * bm;
+	bm = const_cast<char*>((b.substr(0,2)).c_str());
+	string bds=duplicate.substr(3,2);
+	char * bd;
+	bd = const_cast<char*>((b.substr(3,2)).c_str());
+	string bys=duplicate.substr(6,4);
+	char * by;
+	by = const_cast<char*>((b.substr(6,4)).c_str());
 
+	//checking that all dates are numeric and nothing but numbers or slashes in full date
+	for(int i = 0; i < b.length()-1; i++){
+		if(!((b[i]>='0'&&b[i]<='9')||b[i]=='/')){
+
+			isB=false;
+		}
+	}
+	for(int i = 0; i < bms.length() -1; i++){
+		if(!(bm[i]>='0'&&bm[i]<='9')){
+
+			isB=false;
+		}
+	}
+	for(int i = 0; i < bds.length() -1; i++){
+		if(!(bd[i]>='0'&&bd[i]<='9')){
+
+			isB=false;
+		}
+	}
+	for(int i = 0; i < bys.length() -1; i++){
+		if(!(by[i]>='0'&&by[i]<='9')){
+
+			isB=false;
+		}
+	}
+
+	//convert substrings to integers to check numerical validity
+	int b1 = atoi(bms.c_str());
+	int b2 = atoi(bds.c_str());
+	int b3 = atoi(bys.c_str());
+
+	//make sure that month is correct
+	if(b1>12||b1<1){
+
+		isB=false;
+	}
+	//make sure correct amount of days in corresponding months (except leap years)
+	if(b1==1||b1==3||b1==5||b1==7||b1==8||b1==10||b1==12){
+		if(b2>31||b2<1){
+
+			isB=false;
+		}
+	}
+	if(b1==4||b1==6||b1==9||b1==11){
+		if(b2>30||b2<1){
+
+			isB=false;
+		}
+	}
+	if(b1==2){
+		if(b2>29||b2<1){
+
+				isB=false;
+		}
+	}
+	//make sure year is reasonable
+	if(b3>2013||b3<1850){
+
+		isB=false;
+	}
+	}while(isB==false);
+	
+	//boolean to keep track of if gender variable is an M or an F
 	bool isG = true;
 	do{
 	cout<<"Please enter gender of client. (M or F)"<< endl;
 	cin>>g;
+	//make sure gender variable is an M or an F
 	if(toupper(g)!='M'&&toupper(g)!='F')
-		isG = false;
+		isG = false;//If it is not, return false
 	else
-		isG = true;
+		isG = true;//...
 	}while(isG==false);
 
+	//boolean to keep track of if the phone number is valid
 	bool isP = false;
 	do{
 	cout<<"Please enter in phone number of client including area code. (No spaces or dashes.)"<< endl;
 	cin>>p;
+	//check if phone number is of correct length (10 digits including area code)
 	if(p.length()==10)
 		isP=true;
 	else
 		isP=false;
+	//make sure every digit is numeric, and phone number contains no invalid characters
 	for(int i = 0; i < p.length()-1; i++){
 		if(!(p[i]>='0'&&p[i]<='9'))
 			isP=false;
@@ -143,6 +229,7 @@ void Admin::createAccount(){
 
 	int compare = pass.compare(pass2);
 
+	//Added password verification, requiring users to enter their desired passwords twice when the admin creates their account
 	while(compare!=0)
 	{
 		cout<<"Passwords do not match. Please try again."<<endl;
