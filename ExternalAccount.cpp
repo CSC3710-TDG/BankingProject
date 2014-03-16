@@ -6,6 +6,7 @@
  */
 
 #include "ExternalAccount.h"
+#include <cstdlib>
 
 namespace std {
 
