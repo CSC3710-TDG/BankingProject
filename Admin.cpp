@@ -120,10 +120,10 @@ void Admin::createAccount(){
 	cout<<"Please re-enter password."<< endl;
 	cin>>pass2;
 
-/*
+
 	int compare = pass.compare(pass2);
 
-	while(compare==-1)
+	while(compare!=0)
 	{
 		cout<<"Passwords do not match. Please try again."<<endl;
 
@@ -134,9 +134,8 @@ void Admin::createAccount(){
 		cin>>pass2;
 
 		compare = pass.compare(pass2);
-
 	}
-*/
+
 
 	clie.setPerson(n,b,g,p,a,e,un);
 
