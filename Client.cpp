@@ -50,7 +50,9 @@ void Client::viewInternalAccount(){
 }
 
 void Client::withdraw(){
-	heldAccount[0].displayInternalAccount();
+		system("clear");
+
+		heldAccount[0].displayInternalAccount();
 		heldAccount[1].displayInternalAccount();
 
 		int n,stop1=0;
@@ -114,6 +116,8 @@ void Client::withdraw(){
 		}
 }
 void Client::deposit(){
+		system("clear");
+
 		heldAccount[0].displayInternalAccount();
 		heldAccount[1].displayInternalAccount();
 		int n,stop1=0;
@@ -172,6 +176,8 @@ void Client::deposit(){
 		}
 }
 void Client::transfer(){
+	system("clear");
+
 	heldAccount[0].displayInternalAccount();
 	heldAccount[1].displayInternalAccount();
 	int n,stop1=0;
@@ -245,6 +251,8 @@ void Client::transfer(){
 }
 
 void Client::printOptions(){
+	system("clear");
+
 	heldAccount[0].displayInternalAccount();
 	heldAccount[1].displayInternalAccount();
 	int n;

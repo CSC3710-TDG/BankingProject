@@ -26,6 +26,8 @@ Person* AccountAccessor::login(Person *per, ExternalAccount &e){
 	string name, pass;
 	bool success = false;
 
+	system("clear");
+
 	//read in the username and password
 	while(!success){
 		cout<<"Username: ";
@@ -50,14 +52,18 @@ Person* AccountAccessor::login(Person *per, ExternalAccount &e){
 				}else{
 					per = new Admin();
 				}
-
+//updated display line to be generalized so hackers cannot find a password in the username is correct, etc.
 			}else{
+				system("clear");
 				cout<<"Username or password is incorrect."<<endl;
 			}
 		}else{
+			system("clear");
 			cout<<"Username or password is incorrect."<<endl;
 		}
 	}
+
+
 
 	//return the person
 	return per;

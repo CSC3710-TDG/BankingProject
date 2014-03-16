@@ -27,6 +27,7 @@ void Admin::viewBank()
 
 void Admin::viewAccounts()
 {
+	system("clear");
 	cout<<"\nTotal number of accounts: "<<bank.getTotalAccounts()<<endl<<endl;
 }
 
@@ -34,6 +35,8 @@ void Admin::viewAccountInDetail(){
 	// ask for the account number of the account that the user wishes to view
 	//if it is a valid account number, open<accountNumber.txt> read in all of
 	//the information and print it all. If its not print error and call printOptions
+
+	system("clear");
 
 	string user;
 	cout<<"Enter User Name: ";
@@ -61,12 +64,14 @@ void Admin::viewAccountInDetail(){
 	t[1].displayInternalAccount();
 	cout<<endl;
 
-
 }
+
 void Admin::createAccount(){
 	//ask for general information
 	//create client object from entered info
 	//call bank.create ExternalAccount(client,password) function for bank class
+
+	system("clear");
 
 	Client clie;
 
@@ -89,23 +94,23 @@ void Admin::createAccount(){
 
 	string n = firstName + " "+lastName;
 
-	cout<<"Please enter birthday of client."<< endl;
+	cout<<"Please enter birthday of client. (i.e. MM/DD/YYYY)"<< endl;
 	cin>>b;
 
-	cout<<"Please enter gender of client."<< endl;
+	cout<<"Please enter gender of client. (M or F)"<< endl;
 	cin>>g;
 
-	cout<<"Please enter in phone number of client"<< endl;
+	cout<<"Please enter in phone number of client. (no spaces or dashes)"<< endl;
 	cin>>p;
 	getline(cin, a);
 
 	cout<<"Please enter in address of client:\n";
 	getline(cin, a);
 
-	cout<<"Please enter in email of client"<< endl;
+	cout<<"Please enter in email of client."<< endl;
 	cin>>e;
 
-	cout<<"Please enter in username of client"<< endl;
+	cout<<"Please enter in username of client."<< endl;
 	cin>>un;
 
 	cout<<"Please enter in a password"<< endl;
@@ -114,6 +119,8 @@ void Admin::createAccount(){
 	clie.setPerson(n,b,g,p,a,e,un);
 
 	bank.createExternalAccount(clie, pass);
+
+	cout<<endl;
 }
 
 void Admin::changePassword()
@@ -124,6 +131,7 @@ void Admin::changePassword()
 	//the temporary account to the new password
 	//set the externalAccount in the Bank equal to the temporary
 	//call printOptions()
+	system("clear");
 
 	ExternalAccount temp;
 	temp.setAccountNumber(-1);
@@ -151,6 +159,8 @@ void Admin::changePassword()
 }
 
 void Admin::deleteAccount(){
+	system("clear");
+
 	string un;
 	cout<<"Please enter the user name of the account you wish to delete:" << endl;
 	cin>>un;
@@ -164,6 +174,8 @@ void Admin::printOptions()
 	//an account, view a specific account, or change the password to an account)
 	//ask the option which the user wants to do (by number) and call the respective
 	//function
+	system("clear");
+
 	int n = -1;
 	do{
 		cout<<"Here you can do: \n1. View bank  \n2. View the number of accounts  \n3. View an account in detail \n4. Create an account \n5. Delete an account \n6. Change password of account \n0. Logout"<<

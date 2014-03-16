@@ -143,6 +143,8 @@ void Bank::setTotalAccounts(int g){
 
 //go through the bank and print the username, password, and account number of each account
 void Bank::printBank(){
+	system("clear");
+
 	cout<<"\nUsername:\tPassword:\tAccount Number:"<<endl;
 	map<string ,ExternalAccount>::iterator i;
 	for(i = bank.begin(); i != bank.end(); i++){

@@ -106,6 +106,7 @@ void Person::displayPersonalInformation()
 	n=Person.getName();
 	cout<<n;
 	 */
+	system("clear");
 
 	cout<<name<<endl;
 	cout<<birthday<<endl;
