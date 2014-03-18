@@ -27,6 +27,7 @@ Person* AccountAccessor::login(Person *per, ExternalAccount &e){
 	string name, pass;
 	bool success = false;
 
+				//added system clear for aesthetic reasons -TDG
 	system("clear");
 
 	//read in the username and password
@@ -55,10 +56,12 @@ Person* AccountAccessor::login(Person *per, ExternalAccount &e){
 				}
 //updated display line to be generalized so hackers cannot find a password in the username is correct, etc.
 			}else{
+				//added system clear for aesthetic reasons -TDG
 				system("clear");
 				cout<<"Username or password is incorrect."<<endl;
 			}
 		}else{
+				//added system clear for aesthetic reasons -TDG
 			system("clear");
 			cout<<"Username or password is incorrect."<<endl;
 		}

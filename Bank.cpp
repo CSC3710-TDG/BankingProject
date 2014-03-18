@@ -144,6 +144,8 @@ void Bank::setTotalAccounts(int g){
 
 //go through the bank and print the username, password, and account number of each account
 void Bank::printBank(){
+
+	//added system clear for aesthetic reasons -TDG
 	system("clear");
 
 	cout<<"\nUsername:\tPassword:\tAccount Number:"<<endl;
@@ -151,7 +153,8 @@ void Bank::printBank(){
 	for(i = bank.begin(); i != bank.end(); i++){
 		ExternalAccount temp = i->second;
 		string userName = i->first;
-		//changed line 152, so admin cannot see user's password
+		//changed line 152, so admin cannot see user's password -TDG
+		//correct amount of tabs for usernames line up in list -TDG
 		cout<< userName;
 		if(userName.length()<8)
 			cout<<"\t\t";

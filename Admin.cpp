@@ -30,6 +30,7 @@ void Admin::viewBank()
 
 void Admin::viewAccounts()
 {
+	//added system clear for aesthetic reasons -TDG
 	system("clear");
 	cout<<"\nTotal number of accounts: "<<bank.getTotalAccounts()<<endl<<endl;
 }
@@ -39,6 +40,7 @@ void Admin::viewAccountInDetail(){
 	//if it is a valid account number, open<accountNumber.txt> read in all of
 	//the information and print it all. If its not print error and call printOptions
 
+	//added system clear for aesthetic reasons -TDG
 	system("clear");
 
 	string user;
@@ -54,7 +56,7 @@ void Admin::viewAccountInDetail(){
 	ext.getAccountHolder(cPtr);
 
 	cout<<endl<<c.getUserName()<<endl;
-	//changed below line, so Admin cannot see the user's password
+	//changed below line, so Admin cannot see the user's password -TDG
 	cout<<"*****"<<endl;
 	cout<<"Account Number: "<<ext.getAccountNumber()<<endl<<endl;
 	c.displayPersonalInformation();
@@ -74,6 +76,7 @@ void Admin::createAccount(){
 	//create client object from entered info
 	//call bank.create ExternalAccount(client,password) function for bank class
 
+	//added system clear for aesthetic reasons -TDG
 	system("clear");
 
 	Client clie;
@@ -98,16 +101,16 @@ void Admin::createAccount(){
 
 	string n = firstName + " "+lastName;
 
-	//boolean for checking if valid date
+	//boolean for checking if valid date -TDG
 	bool isB = true;
 	do{
 	cout<<"Please enter birthday of client. (i.e. MM/DD/YYYY)"<< endl;
 	cin>>b;
 	cout << b << endl;
-	if(b.length()!=10)//if date is not of correct length
+	if(b.length()!=10)//if date is not of correct length -TDG
 		isB = false;
 	string duplicate=b;
-	//making substrings to check valid format and actual dates
+	//making substrings to check valid format and actual dates-TDG
 	string bms=duplicate.substr(0,2);
 	char * bm;
 	bm = const_cast<char*>((b.substr(0,2)).c_str());
@@ -118,7 +121,7 @@ void Admin::createAccount(){
 	char * by;
 	by = const_cast<char*>((b.substr(6,4)).c_str());
 
-	//checking that all dates are numeric and nothing but numbers or slashes in full date
+	//checking that all dates are numeric and nothing but numbers or slashes in full date-TDG
 	for(int i = 0; i < b.length()-1; i++){
 		if(!((b[i]>='0'&&b[i]<='9')||b[i]=='/')){
 
@@ -144,17 +147,17 @@ void Admin::createAccount(){
 		}
 	}
 
-	//convert substrings to integers to check numerical validity
+	//convert substrings to integers to check numerical validity-TDG
 	int b1 = atoi(bms.c_str());
 	int b2 = atoi(bds.c_str());
 	int b3 = atoi(bys.c_str());
 
-	//make sure that month is correct
+	//make sure that month is correct-TDG
 	if(b1>12||b1<1){
 
 		isB=false;
 	}
-	//make sure correct amount of days in corresponding months (except leap years)
+	//make sure correct amount of days in corresponding months (except leap years)-TDG
 	if(b1==1||b1==3||b1==5||b1==7||b1==8||b1==10||b1==12){
 		if(b2>31||b2<1){
 
@@ -173,36 +176,36 @@ void Admin::createAccount(){
 				isB=false;
 		}
 	}
-	//make sure year is reasonable
+	//make sure year is reasonable-TDG
 	if(b3>2013||b3<1850){
 
 		isB=false;
 	}
 	}while(isB==false);
 	
-	//boolean to keep track of if gender variable is an M or an F
+	//boolean to keep track of if gender variable is an M or an F-TDG
 	bool isG = true;
 	do{
 	cout<<"Please enter gender of client. (M or F)"<< endl;
 	cin>>g;
-	//make sure gender variable is an M or an F
+	//make sure gender variable is an M or an F-TDG
 	if(toupper(g)!='M'&&toupper(g)!='F')
-		isG = false;//If it is not, return false
+		isG = false;//If it is not, return false-TDG
 	else
 		isG = true;//...
 	}while(isG==false);
 
-	//boolean to keep track of if the phone number is valid
+	//boolean to keep track of if the phone number is valid-TDG
 	bool isP = false;
 	do{
 	cout<<"Please enter in phone number of client including area code. (No spaces or dashes.)"<< endl;
 	cin>>p;
-	//check if phone number is of correct length (10 digits including area code)
+	//check if phone number is of correct length (10 digits including area code)-TDG
 	if(p.length()==10)
 		isP=true;
 	else
 		isP=false;
-	//make sure every digit is numeric, and phone number contains no invalid characters
+	//make sure every digit is numeric, and phone number contains no invalid characters-TDG
 	for(int i = 0; i < p.length()-1; i++){
 		if(!(p[i]>='0'&&p[i]<='9'))
 			isP=false;
@@ -229,7 +232,7 @@ void Admin::createAccount(){
 
 	int compare = pass.compare(pass2);
 
-	//Added password verification, requiring users to enter their desired passwords twice when the admin creates their account
+	//Added password verification, requiring users to enter their desired passwords twice when the admin creates their account-TDG
 	while(compare!=0)
 	{
 		cout<<"Passwords do not match. Please try again."<<endl;
@@ -259,6 +262,8 @@ void Admin::changePassword()
 	//the temporary account to the new password
 	//set the externalAccount in the Bank equal to the temporary
 	//call printOptions()
+
+	//added system clear for aesthetic reasons -TDG
 	system("clear");
 
 	ExternalAccount temp;
@@ -287,6 +292,7 @@ void Admin::changePassword()
 }
 
 void Admin::deleteAccount(){
+	//added system clear for aesthetic reasons -TDG
 	system("clear");
 
 	string un;
@@ -302,6 +308,8 @@ void Admin::printOptions()
 	//an account, view a specific account, or change the password to an account)
 	//ask the option which the user wants to do (by number) and call the respective
 	//function
+
+	//added system clear for aesthetic reasons -TDG
 	system("clear");
 
 	int n = -1;
